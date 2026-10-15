@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Gift Just for You ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+:root{--pink:#f17ca4;--deep:#a34f69;--cream:#fff8f5;--blush:#ffe5ec;--rose:#f8b8c9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Quicksand',sans-serif;color:var(--deep);background:radial-gradient(ellipse at 50% 20%,#fffaf6 0,#ffeaf0 50%,#f8cbd7 100%);overflow-x:hidden}
+.browser{height:58px;background:#fff7f8d9;border-bottom:1px solid #f1cbd4;display:flex;align-items:center;gap:15px;padding:0 22px;position:relative;z-index:2;box-shadow:0 3px 15px #9b53610d}
+.dots{display:flex;gap:9px}.dot{height:13px;width:13px;border-radius:50%;background:#f27991}.dot:nth-child(2){background:#f4c96b}.dot:nth-child(3){background:#6bc58b}
+.tab{background:#fff0f3;border-radius:13px 13px 0 0;padding:12px 22px;font-size:13px;min-width:225px}
+.address{flex:1;background:#fffafa;border:1px solid #f0d7dd;border-radius:22px;padding:9px 16px;color:#a56c7c;font-size:13px}
+.icons{font-size:20px;letter-spacing:10px}
+main{max-width:1200px;min-height:calc(100vh - 58px);margin:auto;padding:44px 22px 70px;position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.greeting{position:absolute;left:3%;top:30px;transform:rotate(-9deg);font-size:17px;border:2px dashed #e9a6b7;border-radius:45%;padding:14px 18px;background:#fff5f1b0}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.1;margin:16px 0 18px;letter-spacing:-2px;color:#8e4b60;text-shadow:2px 3px 0 #fff}
+.subtitle{font-size:clamp(15px,2vw,20px);line-height:1.8;margin:0 0 18px;max-width:560px}
+.stage{position:relative;width:min(540px,90vw);height:330px;display:flex;justify-content:center;align-items:center;margin-top:2px}
+.envelope{position:relative;width:min(490px,88vw);height:270px;cursor:pointer;filter:drop-shadow(0 14px 12px #a65c6323);transition:transform .25s}
+.envelope:hover{transform:translateY(-5px) rotate(-.5deg)}
+.env-back{position:absolute;inset:0;background:#f6a9bc;border:3px solid #bd6c7c;border-radius:8px;overflow:hidden}
+.letter-peek{position:absolute;left:8%;right:8%;top:10px;height:210px;background:#fff8ef;border:1px solid #e8b7b4;border-radius:8px;transition:transform .8s;display:flex;align-items:center;justify-content:center;font-size:25px}
+.env-front{position:absolute;inset:0;background:linear-gradient(145deg,#ffd0dc,#f4a1b8);clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%);border-radius:5px}
+.flap{position:absolute;inset:0;background:linear-gradient(135deg,#ffe1e8,#f6b1c3);clip-path:polygon(0 0,100% 0,50% 60%);transform-origin:top;transition:transform .8s;z-index:3;filter:drop-shadow(0 3px 2px #bd6c7c)}
+.seal{position:absolute;z-index:4;left:50%;top:54%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#ff9eb7,#d95079);color:white;font-size:34px;border:4px solid #fbd0db;box-shadow:0 4px 0 #bd6c7c;transition:opacity .3s}
+.tag{position:absolute;z-index:5;right:17%;bottom:14%;background:#fff4e6;padding:12px 17px;border:2px solid #d9a5a2;border-radius:5px;transform:rotate(-7deg);font-weight:700;font-size:17px}
+.open .flap{transform:rotateX(180deg);z-index:1}.open .seal{opacity:0}.open .letter-peek{transform:translateY(-105px);z-index:2}
+.open .env-front{z-index:2}
+.cta{border:0;border-radius:999px;padding:17px 31px;background:linear-gradient(135deg,#fa82a7,#e9588c);color:white;font:700 17px 'Quicksand',sans-serif;box-shadow:0 5px 0 #c94e7b,0 9px 20px #d66d8a30;cursor:pointer;transition:.2s;margin-top:0}
+.cta:hover{transform:translateY(-2px);box-shadow:0 7px 0 #c94e7b,0 12px 22px #d66d8a35}
+.hint{font-size:13px;opacity:.8;margin-top:17px}
+.music{position:fixed;bottom:18px;left:18px;background:#fff4f6e8;border:1px solid #e9a6b7;border-radius:30px;padding:10px 15px;display:flex;gap:10px;align-items:center;z-index:5;font-size:13px}
+.music button{border:0;background:none;color:var(--deep);font-size:18px;cursor:pointer}
+.decor{position:absolute;pointer-events:none;color:#e98fa9;animation:float 4s ease-in-out infinite;font-size:27px}.d1{left:12%;top:48%}.d2{right:13%;top:52%;animation-delay:1s}.d3{left:22%;bottom:15%;animation-delay:2s}.d4{right:22%;bottom:24%;animation-delay:.7s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-15px) rotate(9deg)}}
+.heart{position:fixed;bottom:-30px;color:#ec7e9e;animation:rise 5s linear forwards;pointer-events:none;z-index:9}
+@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.modal{position:fixed;inset:0;background:#73384c70;display:none;align-items:center;justify-content:center;padding:20px;z-index:20;backdrop-filter:blur(5px)}
+.modal.show{display:flex;animation:fade .3s ease}
+.letter-card{max-width:530px;width:100%;background:#fff9f3;border:3px solid #f2b6c6;border-radius:24px;padding:34px 30px 28px;box-shadow:0 20px 60px #622d423d;position:relative;animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+.letter-card h2{font-size:32px;margin:0 0 14px;color:#a54e6c}
+.letter-card p{font-size:16px;line-height:1.9;white-space:pre-line}
+.close{position:absolute;right:16px;top:12px;border:0;background:#ffe3eb;color:#9c4e67;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer}
+.next{border:0;background:#f17ca4;color:white;border-radius:30px;padding:12px 20px;font:700 14px 'Quicksand';cursor:pointer;margin-top:8px}
+@keyframes pop{from{opacity:0;transform:scale(.8) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:650px){.browser{padding:0 10px;gap:8px}.tab{min-width:0;padding:12px;font-size:11px}.address{display:none}.icons{margin-left:auto;font-size:16px}.greeting{position:relative;left:auto;top:auto;align-self:flex-start;margin:0 0 5px;font-size:14px}main{padding-top:22px}.stage{height:285px}.envelope{height:210px}.letter-peek{height:165px}.tag{font-size:13px;padding:8px 10px}.seal{width:58px;height:58px;font-size:28px}h1{letter-spacing:-1px}.subtitle{line-height:1.6}.decor{font-size:22px}.d1{left:3%}.d2{right:3%}.d3{left:8%}.d4{right:8%}.cta{font-size:15px;padding:15px 22px}.music{bottom:10px;left:10px}}
+</style>
+</head>
+<body>
+<div class="browser">
+  <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="tab">♡ &nbsp; A Gift Just for You <span style="float:right">×</span></div>
+  <div class="address">🔒 &nbsp; yourname.com/gift</div>
+  <div class="icons">♫ ♡</div>
+</div>
+<main>
+  <div class="greeting">Hey Kamuu! ♡</div>
+  <div class="decor d1">♡</div><div class="decor d2">✧</div><div class="decor d3">♡</div><div class="decor d4">✿</div>
+  <h1>A Gift Just for You</h1>
+  <p class="subtitle">Aku lagi iseng bikin sesuatu hal yang aku suka,yaa semacam itulah intinyaaa hehe aku harap kalain sukaa siii, jangan lupa baca yaa? ♡</p>
+  <div class="stage">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Buka amplop untuk Mikoyy">
+      <div class="env-back"></div>
+      <div class="letter-peek">Untuk seseorang yang spesial ♡</div>
+      <div class="flap"></div>
+      <div class="env-front"></div>
+      <div class="seal">♡</div>
+      <div class="tag">Untuk<br>Kamuu ♡</div>
+    </div>
+  </div>
+  <button class="cta" id="openBtn">✉ &nbsp; Buka hadiahmu, Kawan imutku ♡</button>
+  <div class="hint">psst... ada sesuatu di dalam amplop ini ✨</div>
+</main>
+<div class="music">♫ <span id="musicLabel">Musik: mati dulu</span><button id="musicBtn" aria-label="Aktifkan musik">▶</button></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+  <div class="letter-card">
+    <button class="close" id="closeBtn" aria-label="Tutup">×</button>
+    <div style="font-size:30px;margin-bottom:8px">💌 🌷</div>
+    <h2 id="letterTitle">Hai!</h2>
+    <p id="letterText">Kalau kamu sampai di halaman ini, berarti ada hadiah kecil yang berhasil sampai ke kamu.
+
+Aku bikin ini khusus buat kamu yaa oll oll ku. Mungkin kalau di lihat emang cukup sederhana, tapi aku berharap hadiah ini bisa jadi sesuatu yang menyenangkan buat kamu, meskipun cuma hal kecil di tengah kesibukan sehari-hari.
+
+Jadi, luangkan waktu sebentar buat menikmati setiap bagiannya, ya. Nggak perlu buru-buru, lihat aja satu per satu. Anggap ini sebagai hadiah kecil dari seorang teman yang ingin berbagi sedikit kebahagiaan sama kamu.
+
+Semoga kamu selalu diberi banyak hal baik, dipertemukan dengan orang-orang yang tulus, dan punya cukup waktu buat istirahat ketika semuanya terasa melelahkan.
+
+Jaga diri baik-baik, ya. Semoga hadiah kecil ini bisa bikin harimu sedikit lebih menyenangkan.
+
+Dari temanmu si syasya yang super duper imut,
+yang ingin berbagi sedikit kebahagiaan ♡</p>
+    <button class="next" id="continueBtn">Lihat kejutan berikutnya ♡</button>
+  </div>
+</div>
+<script>
+const envelope=document.getElementById('envelope'), modal=document.getElementById('modal');
+function openLetter(){envelope.classList.add('open');setTimeout(()=>modal.classList.add('show'),420);sprinkleHearts(18)}
+function closeLetter(){modal.classList.remove('show')}
+document.getElementById('openBtn').addEventListener('click',openLetter);
+envelope.addEventListener('click',openLetter);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter()}});
+document.getElementById('closeBtn').addEventListener('click',closeLetter);
+modal.addEventListener('click',e=>{if(e.target===modal)closeLetter()});
+document.getElementById('continueBtn').addEventListener('click',()=>{
+ document.getElementById('letterTitle').textContent='Satu hal lagi, kawan imutku ♡';
+ document.getElementById('letterText').textContent='Makasih yaa udah mampir dan baca sampai sini! Ini baru halaman pertama—masih ada cerita, permainan kecil, dan kejutan lain yang menunggu kamu. Siap lanjut, kawan imutku? 🥹💗';
+ document.getElementById('continueBtn').textContent='Aku siap! (demo) ♡';
+ document.getElementById('continueBtn').onclick=()=>{alert('Bagian 1 selesai! Nanti tombol ini bisa dihubungkan ke halaman Our Little Story. ♡')};
+ sprinkleHearts(12);
+});
+function sprinkleHearts(n){for(let i=0;i<n;i++){const h=document.createElement('span');h.className='heart';h.textContent=['♡','♥','✧','💗'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(15+Math.random()*22)+'px';h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}}
+setInterval(()=>{if(Math.random()>.35)sprinkleHearts(1)},1800);
+// Optional soft synthesized ambient tones; starts only after the user presses play.
+let audioCtx=null,osc=null,gain=null,musicOn=false,toneTimer=null;
+const musicBtn=document.getElementById('musicBtn'),musicLabel=document.getElementById('musicLabel');
+function startMusic(){audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();gain=audioCtx.createGain();gain.gain.value=.018;gain.connect(audioCtx.destination);osc=audioCtx.createOscillator();osc.type='sine';osc.frequency.value=261.63;osc.connect(gain);osc.start();let notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23],i=0;toneTimer=setInterval(()=>{if(osc)osc.frequency.setTargetAtTime(notes[i++%notes.length],audioCtx.currentTime,.25)},650);musicOn=true;musicBtn.textContent='Ⅱ';musicLabel.textContent='Musik: aktif'}
+function stopMusic(){if(toneTimer)clearInterval(toneTimer);if(osc){osc.stop();osc.disconnect();osc=null}if(gain){gain.disconnect();gain=null}musicOn=false;musicBtn.textContent='▶';musicLabel.textContent='Musik: mati dulu'}
+musicBtn.addEventListener('click',()=>{if(musicOn)stopMusic();else startMusic()});
+</script>
+</body>
+</html>
